@@ -1,0 +1,8 @@
+verilog work "syncinp.v"
+verilog work "vgatimer.v"
+verilog work "ps2mbits.v"
+verilog work "vga4word.v"
+verilog work "shw4spec.v"
+verilog work "muskpak1.v"
+verilog work "issia.v"
+verilog work "esim17.v"

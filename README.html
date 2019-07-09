@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head><title>Esimerkki 17 - Piirto-ohjelma Verilogilla Spartan-3 FPGA Starter Boardille</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<H3>Esimerkki 17 - Piirto-ohjelma Verilogilla Spartan-3 FPGA Starter Boardille</H3>
+<div align="center">(<EM>Coding by karttu 2005, photograph by zzorn 2011.</EM>)</div>
+
+
+<p><br/></p>
+<div align="center">
+<a href="kuva3000x4000.jpg"><img src="kuva600x800.jpg" alt="Kuva laitteistosta."></a>
+<br/><EM>(Klikkaa kuvaa nähdäksesi HIRES-version.)</EM>
+</div>
+
+<ul>
+<p><br/></p><li><A HREF="esim17.v">esim17.v</A> - Päämoduli, johon tulevat esim17.ucf:ssä määritellyt inputit, outputit ja tristate-linjat ja väylät (viimeksi mainitut määritelmällä <B>inout</B>, esim. signaalit <CODE>PS2CLK</CODE> ja <CODE>PS2DATA</CODE>, sekä <CODE>inout [15:0] ISSI_DATA_IO</CODE> 16 bitin väylä kortin alla olevaan ulkoiseen RAMmiin.) Tämä toplevel-moduli "instantioi" (siis käyttää)
+edelleen moduleita muskpak1, vga4word, issia sekä shw4spec.
+
+Liukukytkinten päällä sijaitsevat kahdeksan lediä näyttävät hiireltä
+ensimmäisenä luetun status-tavun.
+Esim. painamalla hiiren vasenta nappia, syttyy oikeanpuoleisin ledi (LD0),
+ja oikeanpuolesita nappia painamalla taas äskeisen vasemmalla puolen
+oleva ledi (LD1).
+
+
+<p><br/></p><li><A HREF="esim17.ucf">esim17.ucf</A> - Xilinxin ISE WebPack-softan haluama UCF-tiedosto ("User Constraint File", tms?), jolla määritellään mihin pinneihin kukin päämoduliin tuleva signaali itse asiassa menee, mahdollisia aikarajoituksia, yms. Risuaidalla (#) alkavat ovat pois-kommentoituja rivejä.
+
+<p><br/></p><li><A HREF="debounce.v">debounce.v</A> - Simppeli painonapin debounssaus 20-bitin laskuria käyttäen.
+
+
+<p><br/></p><li><A HREF="shw4spec.v">shw4spec.v</A> - Tämä on spesiaaliversio shw4hex.v -modulista, joka näyttää paitsi 4 nybbleä heksana neljässä 7-seg digitissä, niin myös ko. digittien desimaalipisteissä jotain hyvin sovelluskohtaista debuggausinfoa.
+
+<p><br/></p><li><A HREF="vga4word.v">vga4word.v</A> - Simppeli VGA-kontrolleri, joka käyttää kortin alapuolella olevaa ISSI:n ulkoista staattista rammia (vain toista piiriä) videomuistinaan, siten että kuhunkin 16-bitin wordiin on pakattu neljä kolmella bitillä esitettyä väriarvoa. (Enemmänkin tietysti mahtuisi.)
+Jos input-signaali <CODE>test_quilt_pat</CODE> on ylhäällä, niin näytetäänkin
+"testikuvaa", videomuistiin piirretyn sijasta. Tämä on kytketty kortin oikeianpuoleisimpaan painonappiin (<B>BTN0</B>, liukukytkinten vasemmalla puolen).
+
+<p><br/></p><li><A HREF="vgatimer.v">vgatimer.v</A> - Apumoduli edelliseen, generoi sopivat ajoitussignaalit <CODE>Sync</CODE>, <CODE>Gate</CODE> ja <CODE>Done</CODE> 640x400 perus-VGA:ta varten.
+
+<p><br/></p><li><A HREF="issia.v">issia.v</A> - Moduli ISSI:n asynkronisen staattisen RAM:min ohjaukseen, sopivine WAIT-tiloineen. En takaa että tämä olisi täysin oikein koodattu.
+
+<p><br/></p><li><A HREF="ps2mbits.v">ps2mbits.v</A> - Moduli PS/2-hiiren kanssa kommunikoimiseen. Ensin hiirelle pitää lähettää tietty komento, että se menisi oikeaan tilaan, jonka jälkeen se alkaa lähetellä koordinattipaketteja FPGA:lle päin. Tämä on aika ajoituskriittistä, ja toimii vain joillakin PS/2-hiirillä. Yleensä mitä vanhempi ja karvalakkisempi malli, sen parempi. (Ei esimerkiksi optisilla?!)
+
+<p><br/></p><li><A HREF="syncinp.v">syncinp.v</A> - Tämä pikkumoduli pistää vain ylimääräisen flip-flopin <CODE>sigIn</CODE> ja <CODE>sigOut</CODE>-signaalien väliin.
+Tätä käytetään edellisessä modulissa "bufferoimaan" hiireltä tulevat
+<CODE>PS2CLK</CODE> ja <CODE>PS2DATA</CODE>-signaalit, sillä koska
+niitä ole tahdistettu FPGA:n kellon kanssa, niin
+<A HREF="http://en.wikipedia.org/wiki/Metastability_in_electronics">metastabiilisuuden</A> vaara on ainakin teoriassa olemassa, mikäli niitä ei
+ole puskuroitu kuten nyt on.
+
+<p><br/></p><li><A HREF="muskpak1.v">muskpak1.v</A> - Tämä moduli lukee hiireltä tulevia koordinattipaketteja, ja aina kun hiiren vasemmanpuoleista nappia on painettu, se pistää k.o. koordinaatin, yhdessä kolmesta oikeanpuoleisimmasta liukukytkimestä luetun RGB-värin (<CODE>input [2:0] chosen_color</CODE>, kun kaikki alhaalla = 000 = musta, kaikki ylhäällä = 111 = valkoinen, ja esim. 100 = punainen) kanssa paketoituna sisäiseen
+FPGA-piirin sisäiseen Block-RAM-muistiin (jota tässä siis käytetään FIFOna eli jonona).
+Tämä siis tehdään signaali-assignoinnilla
+<br/>
+<blockquote>
+<CODE>wire fifo_we = (!fifo_full & mouse_packet_received_OK & w_mouse_left_button & (prev_coordpacket != coordpacket));</CODE>
+</blockquote>
+</ul>
+
+<p><br/></p>
+<p>
+Päämoduli esim17.v sitten vaan yhdistää ISSIN muistin data-lähtöpiuhat
+VGA-kontrolleriin, ja aina kun VGA:n "beam" on näkyvän alueen
+ulkopuolella, se tsekkaa muskpak-modulilta tulevaa fifo-tulo-väylää,
+josko siellä olisi uusia paketteja (piirrettäviä pisteitä siis),
+ja ehtii ne mainiosti kirjoittamaan ISSI-muistiin, ennenkuin taas
+mennään näkyvälle alueelle. Näin siis ainakin teoriassa.
+</p>
+<p>
+Kirjastomme hyllyssä olevassa <B>Spartan-3 Starter Kit Board User Guide</B>:sta
+löytyy näiden (monesti yksinkertaistettujen) periferaalien
+käytöstä perustiedot, jonka pohjalta olen yrittänyt nämä modulit
+kirjoittaa.  Ko. vihkonen löytyy myös Xilinxin saitilta
+<A HREF="http://www.xilinx.com/support/documentation/boards_and_kits/ug130.pdf">PDF:nä</A>.
+</p>
+
+<p>Itse korttiakin myydään vielä
+<A HREF="http://www.digilentinc.com/Products/Detail.cfm?Prod=S3BOARD&Nav1=Products&Nav2=Programmable">Digilentin saitilla</A>, tosin kalliimpaan hintaan
+kuin vuonna 2004! Nykyään kannattaa tietysti ostaa jo samalla hinnalla
+joku suurempi ja parempi kehityskortti. Kuvassa näkyvä kortti on joka
+tapauksessa Hacklabillä yhteiskäytössä, varsinkin kun saadaan johonkin koneeseen
+asennettua sopiva koodausympäristö, toimivine JTAG-kaapeleineen, jne.
+</p>
+
+<H3>Xilinxin ISE WebPack-softan tuottamia raportteja</H3>
+
+<ul>
+<p><br/></p><li><A HREF="esim17_summary.html">esim17_summary.html</A> - Toplevel-raportti, josta ilmenee mm. että tämä design vie noin viidesosan Spartan-3 XCS200 FPGA-piirin käytettävissä olevasta tilasta.
+
+<p><br/></p><li><A HREF="device_usage_statistics.html">device_usage_statistics.html</A> - Yksityiskohtaisempi statistiikka käytetyistä resursseista.
+
+<p><br/></p><li><A HREF="esim17.syr">esim17.syr</A> - Käännettäessä tuotettu loki, josta näkyy vielä tarkemmin eri asioita.
+
+<p><br/></p><li><A HREF="esim17.twr">esim17.twr</A> - Vielä tarkempi loki ajoituksista.
+
+<p><br/></p><li><A HREF="esim17.par">esim17.par</A> - Ja "Placement And Routing" vaiheen tuottamaa lokia.
+
+<p><br/></p><li><A HREF="esim17_pad.txt">esim17_pad.txt</A> - Tästä näkyy mihin nastaan kukin I/O-signaali on kytketty, ja miten.
+
+
+</ul>
+
+<p></br></p><hr/><p></br></p>
+
+Kannattaa tietysti aloittaa koodaaminen vähän yksinkertaisemmista jutuista.
+Hakemistostani <A HREF="http://www.iki.fi/kartturi/FPGA/esimes/">http://www.iki.fi/kartturi/FPGA/esimes/</A> löytyy lisää Verilog-esimerkkejä, useimmat paljon yksinkertaisempia kuin tämä. (Nimillä <B>esim1.v</B> - <B>esim18.v</B>).
+
+
+<p></br></p><hr/><p></br></p>
+
+</body></html>

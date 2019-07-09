@@ -1,0 +1,174 @@
+Release 11.1 par L.33 (lin)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+andorinha::  Thu Oct 13 18:51:30 2011
+
+par -ise esim17.ise -w -intstyle ise -ol std -t 1 esim17_map.ncd esim17.ncd
+esim17.pcf 
+
+
+Constraints file: esim17.pcf.
+Loading device for application Rf_Device from file '3s200.nph' in environment /opt/Xilinx/11.1/ISE.
+   "esim17" is an NCD, version 3.2, device xc3s200, package ft256, speed -4
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:54 - 'xc3s200' is a WebPack part.
+WARNING:Security:42 - Your license support version '2010.04' for WebPack expires in -531 days.
+
+----------------------------------------------------------------------
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.39 2009-03-03".
+
+
+Device Utilization Summary:
+
+   Number of BUFGMUXs                        1 out of 8      12%
+   Number of External IOBs                  82 out of 173    47%
+      Number of LOCed IOBs                  82 out of 82    100%
+
+   Number of RAMB16s                         1 out of 12      8%
+   Number of Slices                        456 out of 1920   23%
+      Number of SLICEMs                      5 out of 960     1%
+
+
+
+Overall effort level (-ol):   Standard 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    Standard 
+
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 4 secs 
+Total CPU  time at the beginning of Placer: 2 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:e0f4268c) REAL time: 6 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:e0f4268c) REAL time: 6 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:e0f4268c) REAL time: 6 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+
+Phase 4.2  Initial Clock and IO Placement (Checksum:130bd28c) REAL time: 6 secs 
+
+Phase 5.8  Global Placement
+...........
+......................
+..
+...
+Phase 5.8  Global Placement (Checksum:896037e0) REAL time: 14 secs 
+
+Phase 6.5  Local Placement Optimization
+Phase 6.5  Local Placement Optimization (Checksum:896037e0) REAL time: 14 secs 
+
+Phase 7.18  Placement Optimization
+Phase 7.18  Placement Optimization (Checksum:d0c93815) REAL time: 17 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:d0c93815) REAL time: 17 secs 
+
+Total REAL time to Placer completion: 17 secs 
+Total CPU  time to Placer completion: 14 secs 
+Writing design to file esim17.ncd
+
+
+
+Starting Router
+
+
+Phase  1  : 3253 unrouted;      REAL time: 19 secs 
+
+Phase  2  : 2923 unrouted;      REAL time: 19 secs 
+
+Phase  3  : 1144 unrouted;      REAL time: 20 secs 
+
+Phase  4  : 1144 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 21 secs 
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 22 secs 
+
+Updating file: esim17.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 23 secs 
+
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 23 secs 
+
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 24 secs 
+
+Total REAL time to Router completion: 24 secs 
+Total CPU time to Router completion: 19 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|           CLK_BUFGP |      BUFGMUX0| No   |  259 |  0.005     |  1.015      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  NET "CLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |     8.051ns|    11.949ns|       0|           0
+   50%                                      | HOLD        |     0.825ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 26 secs 
+Total CPU time to PAR completion: 21 secs 
+
+Peak Memory Usage:  123 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+Timing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 0
+Number of info messages: 0
+
+Writing design to file esim17.ncd
+
+
+
+PAR done!

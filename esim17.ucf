@@ -1,0 +1,133 @@
+
+net CLK period = 20 ns ;
+NET "CLK" 		LOC = "T9";
+
+NET "PS2DATA"           LOC = "M15";
+NET "PS2CLK"            LOC = "M16";
+
+
+NET "VGA_R" 		LOC = "R12";
+NET "VGA_G" 		LOC = "T12";
+NET "VGA_B" 		LOC = "R11";
+NET "VGA_HSYNC"		LOC = "R9";
+NET "VGA_VSYNC"		LOC = "T10";
+
+# The leftmost is "RESET":
+NET "RST"		LOC = "L14";
+
+NET "PB_IN2" 		LOC = "L13";
+NET "PB_IN1" 		LOC = "M14";
+
+NET "PB_IN0" 		LOC = "M13";
+
+# LED_OUT<0> is the righmost.
+NET "LED_OUT<0>" 	LOC = "K12";
+NET "LED_OUT<1>" 	LOC = "P14";
+NET "LED_OUT<2>" 	LOC = "L12";
+NET "LED_OUT<3>" 	LOC = "N14";
+NET "LED_OUT<4>" 	LOC = "P13";
+NET "LED_OUT<5>" 	LOC = "N12";
+NET "LED_OUT<6>" 	LOC = "P12";
+NET "LED_OUT<7>" 	LOC = "P11";
+
+# DIGIT_OUT<0> is anode for the righmost, DIGIT_OUT<3> for the leftmost
+# segment:
+NET "DIGIT_OUT<0>" 	LOC = "D14";
+NET "DIGIT_OUT<1>" 	LOC = "G14";
+NET "DIGIT_OUT<2>" 	LOC = "F14";
+NET "DIGIT_OUT<3>" 	LOC = "E13";
+
+# segment encoding
+#      0
+#     ---  
+#  5 |   | 1
+#     ---   <- 6
+#  4 |   | 2
+#     --- . <- 7
+#      3
+
+NET "SEG_OUT<0>" 	LOC = "E14";
+NET "SEG_OUT<1>" 	LOC = "G13";
+NET "SEG_OUT<2>" 	LOC = "N15";
+NET "SEG_OUT<3>" 	LOC = "P15";
+NET "SEG_OUT<4>" 	LOC = "R16";
+NET "SEG_OUT<5>" 	LOC = "F13";
+NET "SEG_OUT<6>" 	LOC = "N16";
+NET "SEG_OUT<7>" 	LOC = "P16";
+
+# SW_IN<0> is the righmost, SW_IN<7> the leftmost slide switch:
+NET "SW_IN<0>" 		LOC = "F12";
+NET "SW_IN<1>" 		LOC = "G12";
+NET "SW_IN<2>" 		LOC = "H14";
+NET "SW_IN<3>" 		LOC = "H13";
+NET "SW_IN<4>" 		LOC = "J14";
+NET "SW_IN<5>" 		LOC = "J13";
+NET "SW_IN<6>" 		LOC = "K14";
+NET "SW_IN<7>" 		LOC = "K13";
+
+
+NET ISSI_CE1N           LOC = "P7";
+NET ISSI_CE2N           LOC = "N5";
+NET ISSI_OEN            LOC = "K4";
+NET ISSI_WEN            LOC = "G3";
+NET ISSI_LB1N           LOC = "P6";
+NET ISSI_LB2N           LOC = "P5";
+NET ISSI_UB1N           LOC = "T4";
+NET ISSI_UB2N           LOC = "R4";
+
+
+NET "ISSI_ADDR<0>"      LOC = "L5";
+NET "ISSI_ADDR<1>"      LOC = "N3";
+NET "ISSI_ADDR<2>"      LOC = "M4";
+NET "ISSI_ADDR<3>"      LOC = "M3";
+NET "ISSI_ADDR<4>"      LOC = "L4";
+NET "ISSI_ADDR<5>"      LOC = "G4";
+NET "ISSI_ADDR<6>"      LOC = "F3";
+NET "ISSI_ADDR<7>"      LOC = "F4";
+NET "ISSI_ADDR<8>"      LOC = "E3";
+NET "ISSI_ADDR<9>"      LOC = "E4";
+NET "ISSI_ADDR<10>"     LOC = "G5";
+NET "ISSI_ADDR<11>"     LOC = "H3";
+NET "ISSI_ADDR<12>"     LOC = "H4";
+NET "ISSI_ADDR<13>"     LOC = "J4";
+NET "ISSI_ADDR<14>"     LOC = "J3";
+NET "ISSI_ADDR<15>"     LOC = "K3";
+NET "ISSI_ADDR<16>"     LOC = "K5";
+NET "ISSI_ADDR<17>"     LOC = "L3";
+
+
+NET "ISSI_DATA_IO<0>"   LOC = "N7";
+NET "ISSI_DATA_IO<1>"   LOC = "T8";
+NET "ISSI_DATA_IO<2>"   LOC = "R6";
+NET "ISSI_DATA_IO<3>"   LOC = "T5";
+NET "ISSI_DATA_IO<4>"   LOC = "R5";
+NET "ISSI_DATA_IO<5>"   LOC = "C2";
+NET "ISSI_DATA_IO<6>"   LOC = "C1";
+NET "ISSI_DATA_IO<7>"   LOC = "B1";
+NET "ISSI_DATA_IO<8>"   LOC = "D3";
+NET "ISSI_DATA_IO<9>"   LOC = "P8";
+NET "ISSI_DATA_IO<10>"  LOC = "F2";
+NET "ISSI_DATA_IO<11>"  LOC = "H1";
+NET "ISSI_DATA_IO<12>"  LOC = "J2";
+NET "ISSI_DATA_IO<13>"  LOC = "L2";
+NET "ISSI_DATA_IO<14>"  LOC = "P1";
+NET "ISSI_DATA_IO<15>"  LOC = "R1";
+
+# These are actually the signals IO0-IO15 of IC11:
+#NET "ISSI_DATA_IO<16>"  LOC = "P2";
+#NET "ISSI_DATA_IO<17>"  LOC = "N2";
+#NET "ISSI_DATA_IO<18>"  LOC = "M2";
+#NET "ISSI_DATA_IO<19>"  LOC = "K1";
+#NET "ISSI_DATA_IO<20>"  LOC = "J1";
+#NET "ISSI_DATA_IO<21>"  LOC = "G2";
+#NET "ISSI_DATA_IO<22>"  LOC = "E1";
+#NET "ISSI_DATA_IO<23>"  LOC = "D1";
+#NET "ISSI_DATA_IO<24>"  LOC = "D2";
+#NET "ISSI_DATA_IO<25>"  LOC = "E2";
+#NET "ISSI_DATA_IO<26>"  LOC = "G1";
+#NET "ISSI_DATA_IO<27>"  LOC = "F5";
+#NET "ISSI_DATA_IO<28>"  LOC = "C3";
+#NET "ISSI_DATA_IO<29>"  LOC = "K2";
+#NET "ISSI_DATA_IO<30>"  LOC = "M1";
+#NET "ISSI_DATA_IO<31>"  LOC = "N1";
+

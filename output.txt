@@ -1,0 +1,8 @@
+Storage Target: Xilinx Flash/PROM
+Storage Family: Platform Flash
+Auto Select Storage Device
+FF
+esim17
+/home/karttu/FPGA/esim17/
+
+MCS

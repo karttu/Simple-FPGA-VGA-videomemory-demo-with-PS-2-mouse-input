@@ -1,0 +1,1053 @@
+Release 11.1 - xst L.33 (lin)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> 
+Reading design: esim17.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "esim17.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "esim17"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : esim17
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : esim17.lso
+Keep Hierarchy                     : NO
+Netlist Hierarchy                  : as_optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "syncinp.v" in library work
+Compiling verilog file "vgatimer.v" in library work
+Module <syncinp> compiled
+Compiling verilog file "ps2mbits.v" in library work
+Module <vgatimer> compiled
+Compiling verilog file "vga4word.v" in library work
+Module <ps2mbits> compiled
+Compiling verilog file "shw4spec.v" in library work
+Module <vga4word> compiled
+Compiling verilog file "muskpak1.v" in library work
+Module <shw4spec> compiled
+Compiling verilog file "issia.v" in library work
+Module <muskpak1> compiled
+Compiling verilog file "esim17.v" in library work
+Module <issia> compiled
+Module <esim17> compiled
+No errors in compilation
+Analysis of file <"esim17.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <esim17> in library <work> with parameters.
+	P_RES_HOR = "1010000000"
+	P_RES_VER = "0111100000"
+	ST_INIT_VIDRAM = "00000001"
+	ST_INIT_VIDRAM_FANCY = "00000010"
+	ST_PAUSE = "00100000"
+	ST_READ_COORDS = "00010000"
+	ST_READ_OLD_VIDWORD = "01000000"
+	ST_SCAN_FIFO = "00001000"
+	ST_WAIT_RELEASE_OF_VIDRAM = "00000100"
+	ST_WRITE_WORD = "10000000"
+	VIDRAM_UPPER_LIMIT = "00000000000000010010110000000000"
+
+Analyzing hierarchy for module <muskpak1> in library <work> with parameters.
+	SBYTE = "11110100"
+	n_bits = "00000000000000000000000000100001"
+
+Analyzing hierarchy for module <vga4word> in library <work> with parameters.
+	RES_HOR = "00000000000000000000001010000000"
+	RES_VER = "00000000000000000000000111100000"
+	VIDRAM_UPPER_LIMIT = "00000000000000010010110000000000"
+	V_THGATE = "00000000000000000000001001111111"
+	V_THGDEL = "00000000000000000000000000101111"
+	V_THLEN = "00000000000000000000001100011111"
+	V_THSYNC = "00000000000000000000000001011111"
+	V_TVGATE = "00000000000000000000000111011111"
+	V_TVGDEL = "00000000000000000000000000011100"
+	V_TVLEN = "00000000000000000000001000001000"
+	V_TVSYNC = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <issia> in library <work> with parameters.
+	ST_READ = "00"
+	ST_WRITE1 = "01"
+	ST_WRITE2 = "11"
+	ST_WRITE3 = "10"
+	high = "1"
+	low = "0"
+
+Analyzing hierarchy for module <shw4spec> in library <work> with parameters.
+	msb = "00000000000000000000000000010000"
+
+Analyzing hierarchy for module <ps2mbits> in library <work> with parameters.
+	ST_KEEP_BOTH_LOW = "0111"
+	ST_KEEP_CLOCK_LOW = "0101"
+	ST_READ_BITS = "0000"
+	ST_SEND_BITS = "0110"
+	ST_START_OUTPUT = "0100"
+	ST_WAIT_DEV_ACK1 = "1100"
+	ST_WAIT_DEV_ACK2 = "1000"
+	cycle1310us = "00000000000000000000000000010000"
+	cycle20us = "00000000000000000000000000001010"
+	cycle328us = "00000000000000000000000000001110"
+	cycle655us = "00000000000000000000000000001111"
+	n_bits = "00000000000000000000000000100001"
+
+Analyzing hierarchy for module <vgatimer> in library <work> with parameters.
+	gate_state = "01000"
+	gdel_state = "00100"
+	idle_state = "00001"
+	len_state = "10000"
+	sync_state = "00010"
+
+Analyzing hierarchy for module <syncinp> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <esim17>.
+	P_RES_HOR = 10'b1010000000
+	P_RES_VER = 10'b0111100000
+	ST_INIT_VIDRAM = 8'b00000001
+	ST_INIT_VIDRAM_FANCY = 8'b00000010
+	ST_PAUSE = 8'b00100000
+	ST_READ_COORDS = 8'b00010000
+	ST_READ_OLD_VIDWORD = 8'b01000000
+	ST_SCAN_FIFO = 8'b00001000
+	ST_WAIT_RELEASE_OF_VIDRAM = 8'b00000100
+	ST_WRITE_WORD = 8'b10000000
+	VIDRAM_UPPER_LIMIT = 32'sb00000000000000010010110000000000
+	Calling function <test_pat>.
+	Calling function <new_vidword>.
+Module <esim17> is correct for synthesis.
+ 
+Analyzing module <muskpak1> in library <work>.
+	SBYTE = 8'b11110100
+	n_bits = 32'sb00000000000000000000000000100001
+Module <muskpak1> is correct for synthesis.
+ 
+    Set user-defined property "INITP_00 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_01 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INITP_07 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_00 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_01 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_07 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_08 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_09 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_0F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_10 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_11 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_12 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_13 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_14 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_15 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_16 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_17 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_18 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_19 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_1F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_20 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_21 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_22 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_23 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_24 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_25 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_26 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_27 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_28 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_29 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_2F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_30 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_31 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_32 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_33 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_34 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_35 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_36 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_37 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_38 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_39 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_3F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_A =  000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "INIT_B =  000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "SIM_COLLISION_CHECK =  ALL" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "SRVAL_A =  000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "SRVAL_B =  000000000" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "WRITE_MODE_A =  WRITE_FIRST" for instance <FIFO> in unit <muskpak1>.
+    Set user-defined property "WRITE_MODE_B =  WRITE_FIRST" for instance <FIFO> in unit <muskpak1>.
+Analyzing module <ps2mbits> in library <work>.
+	ST_KEEP_BOTH_LOW = 4'b0111
+	ST_KEEP_CLOCK_LOW = 4'b0101
+	ST_READ_BITS = 4'b0000
+	ST_SEND_BITS = 4'b0110
+	ST_START_OUTPUT = 4'b0100
+	ST_WAIT_DEV_ACK1 = 4'b1100
+	ST_WAIT_DEV_ACK2 = 4'b1000
+	cycle1310us = 32'sb00000000000000000000000000010000
+	cycle20us = 32'sb00000000000000000000000000001010
+	cycle328us = 32'sb00000000000000000000000000001110
+	cycle655us = 32'sb00000000000000000000000000001111
+	n_bits = 32'sb00000000000000000000000000100001
+Module <ps2mbits> is correct for synthesis.
+ 
+Analyzing module <syncinp> in library <work>.
+Module <syncinp> is correct for synthesis.
+ 
+Analyzing module <vga4word> in library <work>.
+	RES_HOR = 32'sb00000000000000000000001010000000
+	RES_VER = 32'sb00000000000000000000000111100000
+	VIDRAM_UPPER_LIMIT = 32'sb00000000000000010010110000000000
+	V_THGATE = 32'sb00000000000000000000001001111111
+	V_THGDEL = 32'sb00000000000000000000000000101111
+	V_THLEN = 32'sb00000000000000000000001100011111
+	V_THSYNC = 32'sb00000000000000000000000001011111
+	V_TVGATE = 32'sb00000000000000000000000111011111
+	V_TVGDEL = 32'sb00000000000000000000000000011100
+	V_TVLEN = 32'sb00000000000000000000001000001000
+	V_TVSYNC = 32'sb00000000000000000000000000000001
+	Calling function <foo_R>.
+	Calling function <foo_G>.
+	Calling function <foo_B>.
+Module <vga4word> is correct for synthesis.
+ 
+Analyzing module <vgatimer> in library <work>.
+	gate_state = 5'b01000
+	gdel_state = 5'b00100
+	idle_state = 5'b00001
+	len_state = 5'b10000
+	sync_state = 5'b00010
+WARNING:Xst:916 - "vgatimer.v" line 95: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgatimer.v" line 96: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgatimer.v" line 97: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgatimer.v" line 98: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgatimer.v" line 99: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+"vgatimer.v" line 109: Found FullParallel Case directive in module <vgatimer>.
+Module <vgatimer> is correct for synthesis.
+ 
+Analyzing module <issia> in library <work>.
+	ST_READ = 2'b00
+	ST_WRITE1 = 2'b01
+	ST_WRITE2 = 2'b11
+	ST_WRITE3 = 2'b10
+	high = 1'b1
+	low = 1'b0
+Module <issia> is correct for synthesis.
+ 
+Analyzing module <shw4spec> in library <work>.
+	msb = 32'sb00000000000000000000000000010000
+	Calling function <HEX2LED>.
+Module <shw4spec> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <issia>.
+    Related source file is "issia.v".
+    Found 16-bit tristate buffer for signal <ISSI_DATA_IO>.
+    Found 18-bit register for signal <copy_of_ADDR>.
+    Found 16-bit register for signal <copy_of_DATAWRITTEN>.
+    Found 2-bit register for signal <state>.
+    Found 1-bit 4-to-1 multiplexer for signal <state_0$mux0000> created at line 66.
+    Found 1-bit 4-to-1 multiplexer for signal <state_1$mux0000> created at line 66.
+    Summary:
+	inferred  36 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <issia> synthesized.
+
+
+Synthesizing Unit <shw4spec>.
+    Related source file is "shw4spec.v".
+    Found 16x7-bit ROM for signal <HEX2LED/1/HEX2LED>.
+    Found 1-bit 4-to-1 multiplexer for signal <SEG_OUT<7>>.
+    Found 1-of-4 decoder for signal <DIGIT_OUT>.
+    Found 17-bit up counter for signal <delay_counter>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred   5 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <shw4spec> synthesized.
+
+
+Synthesizing Unit <syncinp>.
+    Related source file is "syncinp.v".
+    Found 1-bit register for signal <sigOut>.
+    Found 1-bit register for signal <intSig>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <syncinp> synthesized.
+
+
+Synthesizing Unit <vgatimer>.
+    Related source file is "vgatimer.v".
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Clock enable       | ena (positive)                                 |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00001                                          |
+    | Power Up State     | 00001                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <Done>.
+    Found 1-bit register for signal <Sync>.
+    Found 1-bit register for signal <Gate>.
+    Found 16-bit register for signal <cnt>.
+    Found 16-bit register for signal <cnt_len>.
+    Found 17-bit subtractor for signal <cnt_len_nxt>.
+    Found 17-bit subtractor for signal <cnt_nxt>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  35 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <vgatimer> synthesized.
+
+
+Synthesizing Unit <vga4word>.
+    Related source file is "vga4word.v".
+WARNING:Xst:647 - Input <vidram_data_out<15>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vidram_client_forced_write> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <quartet<3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <eof> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <Tvsync> is used but never assigned. This sourceless signal will be automatically connected to value 00000001.
+WARNING:Xst:653 - Signal <Tvlen> is used but never assigned. This sourceless signal will be automatically connected to value 0000001000001000.
+WARNING:Xst:653 - Signal <Tvgdel> is used but never assigned. This sourceless signal will be automatically connected to value 00011100.
+WARNING:Xst:653 - Signal <Tvgate> is used but never assigned. This sourceless signal will be automatically connected to value 0000000111011111.
+WARNING:Xst:653 - Signal <Thsync> is used but never assigned. This sourceless signal will be automatically connected to value 01011111.
+WARNING:Xst:653 - Signal <Thlen> is used but never assigned. This sourceless signal will be automatically connected to value 0000001100011111.
+WARNING:Xst:653 - Signal <Thgdel> is used but never assigned. This sourceless signal will be automatically connected to value 00101111.
+WARNING:Xst:653 - Signal <Thgate> is used but never assigned. This sourceless signal will be automatically connected to value 0000001001111111.
+    Found 1-bit xor2 for signal <VGA_HSYNC>.
+    Found 1-bit xor2 for signal <VGA_VSYNC>.
+    Found 1-bit xor2 for signal <current_B>.
+    Found 1-bit xor2 for signal <current_G>.
+    Found 1-bit xor2 for signal <current_R>.
+    Found 10-bit comparator equal for signal <cursor_x_now$cmp_eq0000> created at line 122.
+    Found 10-bit comparator equal for signal <cursor_x_now$cmp_eq0001> created at line 122.
+    Found 10-bit comparator equal for signal <cursor_y_now$cmp_eq0000> created at line 123.
+    Found 10-bit comparator equal for signal <cursor_y_now$cmp_eq0001> created at line 123.
+    Found 1-bit xor2 for signal <foo_B$xor0000> created at line 160.
+    Found 1-bit register for signal <pix_clk>.
+    Found 3-bit down counter for signal <pixels_left>.
+    Found 15-bit register for signal <quartet>.
+    Found 10-bit up counter for signal <vga_x>.
+    Found 10-bit up counter for signal <vga_x_plus1>.
+    Found 10-bit up counter for signal <vga_y>.
+    Found 10-bit up counter for signal <vga_y_plus1>.
+    Found 18-bit up counter for signal <vidram_addr_out>.
+    Summary:
+	inferred   6 Counter(s).
+	inferred  16 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+Unit <vga4word> synthesized.
+
+
+Synthesizing Unit <ps2mbits>.
+    Related source file is "ps2mbits.v".
+WARNING:Xst:646 - Signal <cntr1310us> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 63                                             |
+    | Inputs             | 30                                             |
+    | Outputs            | 8                                              |
+    | Clock              | CLK (rising_edge)                              |
+    | Reset              | OUT_BYTE (positive)                            |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0100                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit tristate buffer for signal <PS2DATA>.
+    Found 1-bit tristate buffer for signal <PS2CLK>.
+    Found 6-bit up counter for signal <n_bits_read>.
+    Found 33-bit register for signal <bitsOut>.
+    Found 16-bit adder for signal <$add0000> created at line 129.
+    Found 16-bit register for signal <cntr>.
+    Found 10-bit register for signal <mbyte>.
+    Found 1-bit register for signal <noMoreBitsReg>.
+    Found 1-bit register for signal <prev_s_ps2clk>.
+    Found 1-bit register for signal <prev_s_ps2data>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  62 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Tristate(s).
+Unit <ps2mbits> synthesized.
+
+
+Synthesizing Unit <muskpak1>.
+    Related source file is "muskpak1.v".
+WARNING:Xst:646 - Signal <w_mouse_right_button> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <w_mouse_middle_button> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <nc4a> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <nc32> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mousebits<32>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mousebits<22:21>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mousebits<11:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mousebits<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 9-bit comparator equal for signal <fifo_empty>.
+    Found 11-bit comparator equal for signal <fifo_full>.
+    Found 10-bit up accumulator for signal <cursor_x>.
+    Found 10-bit comparator greatequal for signal <cursor_x$cmp_ge0000> created at line 197.
+    Found 10-bit comparator greatequal for signal <cursor_x$cmp_ge0001> created at line 188.
+    Found 10-bit comparator less for signal <cursor_x$cmp_lt0000> created at line 188.
+    Found 10-bit adder for signal <cursor_x_next$add0000> created at line 157.
+    Found 10-bit down accumulator for signal <cursor_y>.
+    Found 10-bit comparator greatequal for signal <cursor_y$cmp_ge0000> created at line 210.
+    Found 10-bit comparator greatequal for signal <cursor_y$cmp_ge0001> created at line 201.
+    Found 10-bit comparator less for signal <cursor_y$cmp_lt0000> created at line 201.
+    Found 10-bit subtractor for signal <cursor_y_next$sub0000> created at line 158.
+    Found 8-bit register for signal <disp_mouse_s>.
+    Found 8-bit register for signal <disp_mouse_x>.
+    Found 8-bit register for signal <disp_mouse_y>.
+    Found 9-bit up counter for signal <fifo_addr_in>.
+    Found 11-bit subtractor for signal <fifo_full$sub0000> created at line 116.
+    Found 32-bit comparator not equal for signal <fifo_we$cmp_ne0000> created at line 120.
+    Found 1-bit register for signal <mouse_initialized>.
+    Found 1-bit xor8 for signal <parityOK_s$xor0000>.
+    Found 1-bit xor2 for signal <parityOK_s$xor0001> created at line 80.
+    Found 1-bit xor8 for signal <parityOK_x$xor0000>.
+    Found 1-bit xor2 for signal <parityOK_x$xor0001> created at line 79.
+    Found 1-bit xor8 for signal <parityOK_y$xor0000>.
+    Found 1-bit xor2 for signal <parityOK_y$xor0001> created at line 78.
+    Found 32-bit register for signal <prev_coordpacket>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 Accumulator(s).
+	inferred  57 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+	inferred   3 Xor(s).
+Unit <muskpak1> synthesized.
+
+
+Synthesizing Unit <esim17>.
+    Related source file is "esim17.v".
+WARNING:Xst:646 - Signal <parityOK_y> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <parityOK_x> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <parityOK_s> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <nc4> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <fifo_read_port<31:23>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <fifo_addr_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <disp_mouse_y> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <disp_mouse_x> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <bgcol3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <bgcol2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <bgcol1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <bgcol0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_2> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 19                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 6                                              |
+    | Clock              | CLK (rising_edge)                              |
+    | Reset              | RST (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000001                                       |
+    | Power Up State     | 00000001                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit register for signal <color_from_fifo>.
+    Found 9-bit up counter for signal <fifo_addr_out>.
+    Found 16-bit 4-to-1 multiplexer for signal <new_vidword/1/new_vidword>.
+    Found 18-bit adder for signal <our_next_vidram_addr>.
+    Found 18-bit adder for signal <our_next_vidram_addr$addsub0000> created at line 250.
+    Found 18-bit register for signal <our_vidram_addr_out>.
+    Found 2-bit register for signal <pos_in_word>.
+    Found 18-bit register for signal <vidram_addr_in>.
+    Found 18-bit adder for signal <vidram_addr_in_next$addsub0000> created at line 253.
+    Found 16-bit register for signal <vidram_data_in>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  57 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  16 Multiplexer(s).
+Unit <esim17> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 11
+ 10-bit adder                                          : 1
+ 10-bit subtractor                                     : 1
+ 11-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
+ 17-bit subtractor                                     : 4
+ 18-bit adder                                          : 3
+# Counters                                             : 10
+ 10-bit up counter                                     : 4
+ 17-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+ 3-bit down counter                                    : 1
+ 6-bit up counter                                      : 1
+ 9-bit up counter                                      : 2
+# Accumulators                                         : 2
+ 10-bit down accumulator                               : 1
+ 10-bit up accumulator                                 : 1
+# Registers                                            : 51
+ 1-bit register                                        : 33
+ 10-bit register                                       : 1
+ 15-bit register                                       : 1
+ 16-bit register                                       : 6
+ 18-bit register                                       : 3
+ 2-bit register                                        : 1
+ 3-bit register                                        : 1
+ 32-bit register                                       : 1
+ 33-bit register                                       : 1
+ 8-bit register                                        : 3
+# Comparators                                          : 13
+ 10-bit comparator equal                               : 4
+ 10-bit comparator greatequal                          : 4
+ 10-bit comparator less                                : 2
+ 11-bit comparator equal                               : 1
+ 32-bit comparator not equal                           : 1
+ 9-bit comparator equal                                : 1
+# Multiplexers                                         : 5
+ 1-bit 4-to-1 multiplexer                              : 3
+ 16-bit 4-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Tristates                                            : 3
+ 1-bit tristate buffer                                 : 2
+ 16-bit tristate buffer                                : 1
+# Xors                                                 : 12
+ 1-bit xor2                                            : 9
+ 1-bit xor8                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Choose code 7 with characteristics nb_luts=14,nb_literals=41,nb_ffs=8,depth=3 ...
+Optimizing FSM <state/FSM> on signal <state[1:8]> with user encoding.
+----------------------
+ State    | Encoding
+----------------------
+ 00000001 | 00000001
+ 00000100 | 00000100
+ 00000010 | 00000010
+ 00001000 | 00001000
+ 00010000 | 00010000
+ 01000000 | 01000000
+ 00100000 | 00100000
+ 10000000 | 10000000
+----------------------
+Analyzing FSM <FSM_1> for best encoding.
+Choose code 2 with characteristics nb_luts=31,nb_literals=95,nb_ffs=3,depth=4 ...
+Optimizing FSM <MOUSEFIFO/PS2MBITS/state/FSM> on signal <state[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 000
+ 0100  | 001
+ 0101  | 011
+ 0111  | 010
+ 0110  | 110
+ 1100  | 111
+ 1000  | 101
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Choose code 7 with characteristics nb_luts=5,nb_literals=17,nb_ffs=5,depth=1 ...
+Optimizing FSM <VGACNTR/hor_gen/state/FSM> on signal <state[1:5]> with user encoding.
+Optimizing FSM <VGACNTR/ver_gen/state/FSM> on signal <state[1:5]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00001 | 00001
+ 00010 | 00010
+ 00100 | 00100
+ 01000 | 01000
+ 10000 | 10000
+-------------------
+INFO:Xst:2261 - The FF/Latch <prev_coordpacket_23> in Unit <MOUSEFIFO> is equivalent to the following 8 FFs/Latches, which will be removed : <prev_coordpacket_24> <prev_coordpacket_25> <prev_coordpacket_26> <prev_coordpacket_27> <prev_coordpacket_28> <prev_coordpacket_29> <prev_coordpacket_30> <prev_coordpacket_31> 
+WARNING:Xst:1293 - FF/Latch <mbyte_9> has a constant value of 0 in block <PS2MBITS>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <bitsOut_0> of sequential type is unconnected in block <PS2MBITS>.
+WARNING:Xst:2677 - Node <quartet_3> of sequential type is unconnected in block <VGACNTR>.
+WARNING:Xst:2677 - Node <quartet_7> of sequential type is unconnected in block <VGACNTR>.
+WARNING:Xst:2677 - Node <quartet_11> of sequential type is unconnected in block <VGACNTR>.
+WARNING:Xst:2677 - Node <quartet_3> of sequential type is unconnected in block <vga4word>.
+WARNING:Xst:2677 - Node <quartet_7> of sequential type is unconnected in block <vga4word>.
+WARNING:Xst:2677 - Node <quartet_11> of sequential type is unconnected in block <vga4word>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# ROMs                                                 : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 11
+ 10-bit adder                                          : 1
+ 10-bit subtractor                                     : 1
+ 11-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
+ 17-bit subtractor                                     : 4
+ 18-bit adder                                          : 3
+# Counters                                             : 10
+ 10-bit up counter                                     : 4
+ 17-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+ 3-bit down counter                                    : 1
+ 6-bit up counter                                      : 1
+ 9-bit up counter                                      : 2
+# Accumulators                                         : 2
+ 10-bit down accumulator                               : 1
+ 10-bit up accumulator                                 : 1
+# Registers                                            : 299
+ Flip-Flops                                            : 299
+# Comparators                                          : 13
+ 10-bit comparator equal                               : 4
+ 10-bit comparator greatequal                          : 4
+ 10-bit comparator less                                : 2
+ 11-bit comparator equal                               : 1
+ 32-bit comparator not equal                           : 1
+ 9-bit comparator equal                                : 1
+# Multiplexers                                         : 5
+ 1-bit 4-to-1 multiplexer                              : 3
+ 16-bit 4-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Xors                                                 : 12
+ 1-bit xor2                                            : 9
+ 1-bit xor8                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <mbyte_9> has a constant value of 0 in block <ps2mbits>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <prev_coordpacket_23> in Unit <muskpak1> is equivalent to the following 8 FFs/Latches, which will be removed : <prev_coordpacket_24> <prev_coordpacket_25> <prev_coordpacket_26> <prev_coordpacket_27> <prev_coordpacket_28> <prev_coordpacket_29> <prev_coordpacket_30> <prev_coordpacket_31> 
+WARNING:Xst:2677 - Node <MOUSEFIFO/PS2MBITS/bitsOut_0> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_7> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_6> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_5> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_4> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_3> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_2> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_1> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_x_0> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_7> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_6> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_5> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_4> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_3> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_2> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_1> of sequential type is unconnected in block <esim17>.
+WARNING:Xst:2677 - Node <MOUSEFIFO/disp_mouse_y_0> of sequential type is unconnected in block <esim17>.
+
+Optimizing unit <esim17> ...
+
+Optimizing unit <vgatimer> ...
+
+Optimizing unit <vga4word> ...
+WARNING:Xst:1293 - FF/Latch <pixels_left_2> has a constant value of 0 in block <vga4word>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <pixels_left_2> has a constant value of 0 in block <vga4word>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <VGACNTR/ver_gen/Done> of sequential type is unconnected in block <esim17>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block esim17, actual ratio is 22.
+
+Final Macro Processing ...
+
+Processing Unit <esim17> :
+	Found 3-bit shift register for signal <MOUSEFIFO/PS2MBITS/bitsOut_9>.
+	Found 3-bit shift register for signal <MOUSEFIFO/PS2MBITS/bitsOut_20>.
+	Found 2-bit shift register for signal <MOUSEFIFO/PS2MBITS/bitsOut_31>.
+	Found 2-bit shift register for signal <MOUSEFIFO/PS2MBITS/SYNCPS2DATA/sigOut>.
+	Found 2-bit shift register for signal <MOUSEFIFO/PS2MBITS/SYNCPS2CLK/sigOut>.
+Unit <esim17> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 402
+ Flip-Flops                                            : 402
+# Shift Registers                                      : 5
+ 2-bit shift register                                  : 3
+ 3-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : esim17.ngr
+Top Level Output File Name         : esim17
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 82
+
+Cell Usage :
+# BELS                             : 1355
+#      GND                         : 1
+#      INV                         : 71
+#      LUT1                        : 104
+#      LUT2                        : 154
+#      LUT2_D                      : 3
+#      LUT2_L                      : 1
+#      LUT3                        : 70
+#      LUT3_D                      : 7
+#      LUT3_L                      : 2
+#      LUT4                        : 329
+#      LUT4_D                      : 9
+#      LUT4_L                      : 13
+#      MULT_AND                    : 8
+#      MUXCY                       : 297
+#      MUXF5                       : 39
+#      VCC                         : 1
+#      XORCY                       : 246
+# FlipFlops/Latches                : 407
+#      FD                          : 20
+#      FDE                         : 135
+#      FDR                         : 23
+#      FDRE                        : 156
+#      FDRS                        : 38
+#      FDRSE                       : 1
+#      FDS                         : 2
+#      FDSE                        : 32
+# RAMS                             : 1
+#      RAMB16_S36_S36              : 1
+# Shift Registers                  : 5
+#      SRL16                       : 2
+#      SRL16E                      : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 81
+#      IBUF                        : 12
+#      IOBUF                       : 18
+#      OBUF                        : 51
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      411  out of   1920    21%  
+ Number of Slice Flip Flops:            407  out of   3840    10%  
+ Number of 4 input LUTs:                768  out of   3840    20%  
+    Number used as logic:               763
+    Number used as Shift registers:       5
+ Number of IOs:                          82
+ Number of bonded IOBs:                  82  out of    173    47%  
+ Number of BRAMs:                         1  out of     12     8%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 413   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 11.249ns (Maximum Frequency: 88.899MHz)
+   Minimum input arrival time before clock: 7.501ns
+   Maximum output required time after clock: 14.730ns
+   Maximum combinational path delay: 8.957ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 11.249ns (frequency: 88.899MHz)
+  Total number of paths / destination ports: 22684 / 873
+-------------------------------------------------------------------------
+Delay:               11.249ns (Levels of Logic = 5)
+  Source:            MOUSEFIFO/PS2MBITS/bitsOut_16 (FF)
+  Destination:       MOUSEFIFO/fifo_addr_in_8 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: MOUSEFIFO/PS2MBITS/bitsOut_16 to MOUSEFIFO/fifo_addr_in_8
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.720   1.256  MOUSEFIFO/PS2MBITS/bitsOut_16 (MOUSEFIFO/PS2MBITS/bitsOut_16)
+     LUT4:I0->O            1   0.551   0.996  MOUSEFIFO/Mxor_parityOK_x_xor0000_xo<0>9 (MOUSEFIFO/Mxor_parityOK_x_xor0000_xo<0>9)
+     LUT2:I1->O            1   0.551   0.869  MOUSEFIFO/Mxor_parityOK_x_xor0000_xo<0>10 (MOUSEFIFO/parityOK_x_xor0000)
+     LUT4_D:I2->O          2   0.551   1.072  MOUSEFIFO/mouse_packet_received_OK124 (MOUSEFIFO/mouse_packet_received_OK124)
+     LUT3:I1->O           26   0.551   1.845  MOUSEFIFO/mouse_packet_received_OK126_1 (MOUSEFIFO/mouse_packet_received_OK126)
+     LUT4:I3->O           10   0.551   1.134  MOUSEFIFO/fifo_we1 (MOUSEFIFO/fifo_we)
+     FDRE:CE                   0.602          MOUSEFIFO/fifo_addr_in_0
+    ----------------------------------------
+    Total                     11.249ns (4.077ns logic, 7.172ns route)
+                                       (36.2% logic, 63.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 457 / 393
+-------------------------------------------------------------------------
+Offset:              7.501ns (Levels of Logic = 5)
+  Source:            PB_IN2 (PAD)
+  Destination:       state_FSM_FFd5 (FF)
+  Destination Clock: CLK rising
+
+  Data Path: PB_IN2 to state_FSM_FFd5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            12   0.821   1.457  PB_IN2_IBUF (PB_IN2_IBUF)
+     LUT2:I0->O           14   0.551   1.526  vidram_addr_in_next_or00001 (vidram_addr_in_next_or0000)
+     LUT4:I0->O            1   0.551   0.000  state_cmp_eq0000_wg_lut<4> (state_cmp_eq0000_wg_lut<4>)
+     MUXCY:S->O            3   0.739   1.102  state_cmp_eq0000_wg_cy<4> (state_cmp_eq0000)
+     LUT2:I1->O            1   0.551   0.000  state_FSM_FFd5-In261 (state_FSM_FFd5-In26)
+     FDRS:D                    0.203          state_FSM_FFd5
+    ----------------------------------------
+    Total                      7.501ns (3.416ns logic, 4.085ns route)
+                                       (45.5% logic, 54.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 866 / 63
+-------------------------------------------------------------------------
+Offset:              14.730ns (Levels of Logic = 9)
+  Source:            fifo_addr_out_3 (FF)
+  Destination:       SEG_OUT<7> (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: fifo_addr_out_3 to SEG_OUT<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             5   0.720   1.260  fifo_addr_out_3 (fifo_addr_out_3)
+     LUT4_D:I0->O          2   0.551   0.903  MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>11 (MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>)
+     LUT4:I3->O            1   0.551   0.869  MOUSEFIFO/Msub_fifo_full_sub0000_xor<6>11 (MOUSEFIFO/fifo_full_sub0000<6>)
+     LUT4:I2->O            1   0.551   0.000  MOUSEFIFO/Mcompar_fifo_full_lut<3> (MOUSEFIFO/Mcompar_fifo_full_lut<3>)
+     MUXCY:S->O            1   0.500   0.000  MOUSEFIFO/Mcompar_fifo_full_cy<3> (MOUSEFIFO/Mcompar_fifo_full_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  MOUSEFIFO/Mcompar_fifo_full_cy<4> (MOUSEFIFO/Mcompar_fifo_full_cy<4>)
+     MUXCY:CI->O           3   0.303   1.102  MOUSEFIFO/Mcompar_fifo_full_cy<5> (fifo_full)
+     LUT3:I1->O            1   0.551   0.000  DIGDISPLAY/Mmux_SEG_OUT<7>_3 (DIGDISPLAY/Mmux_SEG_OUT<7>_3)
+     MUXF5:I1->O           1   0.360   0.801  DIGDISPLAY/Mmux_SEG_OUT<7>_2_f5 (SEG_OUT_7_OBUF)
+     OBUF:I->O                 5.644          SEG_OUT_7_OBUF (SEG_OUT<7>)
+    ----------------------------------------
+    Total                     14.730ns (9.795ns logic, 4.935ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Delay:               8.957ns (Levels of Logic = 3)
+  Source:            SW_IN<7> (PAD)
+  Destination:       VGA_HSYNC (PAD)
+
+  Data Path: SW_IN<7> to VGA_HSYNC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.821   1.140  SW_IN_7_IBUF (SW_IN_7_IBUF)
+     LUT2:I0->O            1   0.551   0.801  VGACNTR/Mxor_VGA_HSYNC_Result1 (VGA_HSYNC_OBUF)
+     OBUF:I->O                 5.644          VGA_HSYNC_OBUF (VGA_HSYNC)
+    ----------------------------------------
+    Total                      8.957ns (7.016ns logic, 1.941ns route)
+                                       (78.3% logic, 21.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 35.00 secs
+Total CPU time to Xst completion: 23.96 secs
+ 
+--> 
+
+
+Total memory usage is 150580 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   68 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

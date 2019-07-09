@@ -1,0 +1,303 @@
+--------------------------------------------------------------------------------
+Release 11.1 Trace  (lin)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/11.1/ISE/bin/lin/unwrapped/trce -ise
+/home/karttu/FPGA/esim17/esim17.ise -intstyle ise -v 3 -s 4 -fastpaths -xml
+esim17.twx esim17.ncd -o esim17.twr esim17.pcf -ucf esim17.ucf
+
+Design file:              esim17.ncd
+Physical constraint file: esim17.pcf
+Device,package,speed:     xc3s200,ft256,-4 (PRODUCTION 1.39 2009-03-03)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: NET "CLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+
+ 22679 paths analyzed, 1720 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  11.949ns.
+--------------------------------------------------------------------------------
+Slack (setup path):     8.051ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_addr_out_3 (FF)
+  Destination:          MOUSEFIFO/fifo_addr_in_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      11.949ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: fifo_addr_out_3 to MOUSEFIFO/fifo_addr_in_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y7.YQ        Tcko                  0.720   fifo_addr_out<2>
+                                                       fifo_addr_out_3
+    SLICE_X8Y5.G4        net (fanout=5)        1.563   fifo_addr_out<3>
+    SLICE_X8Y5.Y         Tilo                  0.608   MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>11
+    SLICE_X9Y2.G3        net (fanout=3)        0.443   MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>
+    SLICE_X9Y2.Y         Tilo                  0.551   N177
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_xor<6>11
+    SLICE_X8Y3.G2        net (fanout=1)        0.262   MOUSEFIFO/fifo_full_sub0000<6>
+    SLICE_X8Y3.COUT      Topcyg                1.096   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_lut<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.CIN       net (fanout=1)        0.000   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.COUT      Tbyp                  0.120   fifo_full
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<4>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<5>
+    SLICE_X24Y16.F3      net (fanout=3)        2.089   fifo_full
+    SLICE_X24Y16.X       Tilo                  0.608   MOUSEFIFO/fifo_we
+                                                       MOUSEFIFO/fifo_we1
+    SLICE_X9Y8.CE        net (fanout=6)        3.287   MOUSEFIFO/fifo_we
+    SLICE_X9Y8.CLK       Tceck                 0.602   MOUSEFIFO/fifo_addr_in<8>
+                                                       MOUSEFIFO/fifo_addr_in_8
+    -------------------------------------------------  ---------------------------
+    Total                                     11.949ns (4.305ns logic, 7.644ns route)
+                                                       (36.0% logic, 64.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.196ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_addr_out_2 (FF)
+  Destination:          MOUSEFIFO/fifo_addr_in_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      11.804ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: fifo_addr_out_2 to MOUSEFIFO/fifo_addr_in_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y7.XQ        Tcko                  0.720   fifo_addr_out<2>
+                                                       fifo_addr_out_2
+    SLICE_X8Y5.G2        net (fanout=6)        1.418   fifo_addr_out<2>
+    SLICE_X8Y5.Y         Tilo                  0.608   MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>11
+    SLICE_X9Y2.G3        net (fanout=3)        0.443   MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>
+    SLICE_X9Y2.Y         Tilo                  0.551   N177
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_xor<6>11
+    SLICE_X8Y3.G2        net (fanout=1)        0.262   MOUSEFIFO/fifo_full_sub0000<6>
+    SLICE_X8Y3.COUT      Topcyg                1.096   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_lut<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.CIN       net (fanout=1)        0.000   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.COUT      Tbyp                  0.120   fifo_full
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<4>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<5>
+    SLICE_X24Y16.F3      net (fanout=3)        2.089   fifo_full
+    SLICE_X24Y16.X       Tilo                  0.608   MOUSEFIFO/fifo_we
+                                                       MOUSEFIFO/fifo_we1
+    SLICE_X9Y8.CE        net (fanout=6)        3.287   MOUSEFIFO/fifo_we
+    SLICE_X9Y8.CLK       Tceck                 0.602   MOUSEFIFO/fifo_addr_in<8>
+                                                       MOUSEFIFO/fifo_addr_in_8
+    -------------------------------------------------  ---------------------------
+    Total                                     11.804ns (4.305ns logic, 7.499ns route)
+                                                       (36.5% logic, 63.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.281ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_addr_out_3 (FF)
+  Destination:          MOUSEFIFO/fifo_addr_in_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      11.719ns (Levels of Logic = 5)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: fifo_addr_out_3 to MOUSEFIFO/fifo_addr_in_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y7.YQ        Tcko                  0.720   fifo_addr_out<2>
+                                                       fifo_addr_out_3
+    SLICE_X8Y5.G4        net (fanout=5)        1.563   fifo_addr_out<3>
+    SLICE_X8Y5.Y         Tilo                  0.608   MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>11
+    SLICE_X8Y5.F3        net (fanout=3)        0.049   MOUSEFIFO/Msub_fifo_full_sub0000_cy<3>
+    SLICE_X8Y5.X         Tilo                  0.608   MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>
+                                                       MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>11
+    SLICE_X8Y3.G3        net (fanout=3)        0.369   MOUSEFIFO/Msub_fifo_full_sub0000_cy<6>
+    SLICE_X8Y3.COUT      Topcyg                1.096   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_lut<3>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.CIN       net (fanout=1)        0.000   MOUSEFIFO/Mcompar_fifo_full_cy<3>
+    SLICE_X8Y4.COUT      Tbyp                  0.120   fifo_full
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<4>
+                                                       MOUSEFIFO/Mcompar_fifo_full_cy<5>
+    SLICE_X24Y16.F3      net (fanout=3)        2.089   fifo_full
+    SLICE_X24Y16.X       Tilo                  0.608   MOUSEFIFO/fifo_we
+                                                       MOUSEFIFO/fifo_we1
+    SLICE_X9Y8.CE        net (fanout=6)        3.287   MOUSEFIFO/fifo_we
+    SLICE_X9Y8.CLK       Tceck                 0.602   MOUSEFIFO/fifo_addr_in<8>
+                                                       MOUSEFIFO/fifo_addr_in_8
+    -------------------------------------------------  ---------------------------
+    Total                                     11.719ns (4.362ns logic, 7.357ns route)
+                                                       (37.2% logic, 62.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "CLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack (hold path):      0.825ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               MOUSEFIFO/PS2MBITS/bitsOut_13 (FF)
+  Destination:          MOUSEFIFO/PS2MBITS/bitsOut_12 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.824ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.001ns (0.141 - 0.142)
+  Source Clock:         CLK_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: MOUSEFIFO/PS2MBITS/bitsOut_13 to MOUSEFIFO/PS2MBITS/bitsOut_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y26.YQ      Tcko                  0.576   MOUSEFIFO/PS2MBITS/bitsOut<14>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_13
+    SLICE_X22Y26.BX      net (fanout=4)        0.531   MOUSEFIFO/PS2MBITS/bitsOut<13>
+    SLICE_X22Y26.CLK     Tckdi       (-Th)     0.283   MOUSEFIFO/PS2MBITS/bitsOut<12>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_12
+    -------------------------------------------------  ---------------------------
+    Total                                      0.824ns (0.293ns logic, 0.531ns route)
+                                                       (35.6% logic, 64.4% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.839ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               MOUSEFIFO/PS2MBITS/bitsOut_27 (FF)
+  Destination:          MOUSEFIFO/PS2MBITS/bitsOut_26 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.839ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: MOUSEFIFO/PS2MBITS/bitsOut_27 to MOUSEFIFO/PS2MBITS/bitsOut_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X26Y15.YQ      Tcko                  0.576   MOUSEFIFO/PS2MBITS/bitsOut<28>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_27
+    SLICE_X24Y15.BX      net (fanout=4)        0.546   MOUSEFIFO/PS2MBITS/bitsOut<27>
+    SLICE_X24Y15.CLK     Tckdi       (-Th)     0.283   MOUSEFIFO/PS2MBITS/bitsOut<26>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_26
+    -------------------------------------------------  ---------------------------
+    Total                                      0.839ns (0.293ns logic, 0.546ns route)
+                                                       (34.9% logic, 65.1% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.842ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               MOUSEFIFO/PS2MBITS/bitsOut_3 (FF)
+  Destination:          MOUSEFIFO/PS2MBITS/bitsOut_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.843ns (Levels of Logic = 0)
+  Clock Path Skew:      0.001ns (0.142 - 0.141)
+  Source Clock:         CLK_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: MOUSEFIFO/PS2MBITS/bitsOut_3 to MOUSEFIFO/PS2MBITS/bitsOut_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y15.YQ      Tcko                  0.576   MOUSEFIFO/PS2MBITS/bitsOut<4>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_3
+    SLICE_X30Y15.BX      net (fanout=3)        0.550   MOUSEFIFO/PS2MBITS/bitsOut<3>
+    SLICE_X30Y15.CLK     Tckdi       (-Th)     0.283   MOUSEFIFO/PS2MBITS/bitsOut<2>
+                                                       MOUSEFIFO/PS2MBITS/bitsOut_2
+    -------------------------------------------------  ---------------------------
+    Total                                      0.843ns (0.293ns logic, 0.550ns route)
+                                                       (34.8% logic, 65.2% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "CLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.268ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 1.366ns (Tbpwl)
+  Physical resource: MOUSEFIFO/FIFO/CLKA
+  Logical resource: MOUSEFIFO/FIFO.A/CLKA
+  Location pin: RAMB16_X0Y1.CLKA
+  Clock network: CLK_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.268ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 1.366ns (Tbpwh)
+  Physical resource: MOUSEFIFO/FIFO/CLKA
+  Logical resource: MOUSEFIFO/FIFO.A/CLKA
+  Location pin: RAMB16_X0Y1.CLKA
+  Clock network: CLK_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.268ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.732ns (366.032MHz) (Tbp)
+  Physical resource: MOUSEFIFO/FIFO/CLKA
+  Logical resource: MOUSEFIFO/FIFO.A/CLKA
+  Location pin: RAMB16_X0Y1.CLKA
+  Clock network: CLK_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |   11.949|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 22679 paths, 0 nets, and 2618 connections
+
+Design statistics:
+   Minimum period:  11.949ns{1}   (Maximum frequency:  83.689MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Thu Oct 13 18:52:05 2011 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 78 MB
+
+
+
